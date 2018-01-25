@@ -90,7 +90,7 @@ class Amministratore extends CI_Controller {
             $this->form_validation->set_rules('sensore[sens'.$i.'][tipo_sensore]', 'Tipo sensore', 'required');
             $this->form_validation->set_rules('sensore[sens'.$i.'][marca_sensore]', 'Marca sensore', 'required');
         }
-        if ($this->form_validation->run() == FALSE) {
+        if ($this->form_validation->run() == false) {
             $this->nuovo_impianto(-1);
         }
         else {
@@ -161,20 +161,25 @@ class Amministratore extends CI_Controller {
 
 
     public function carica_rilevazioni(){
-        $file = fopen("http://martiamattino.altervista.org/rilevazioni.txt", 'r');
-        while(!feof($file)){
-            $riga = fgets($file);
-            $stringa['idsens'] = substr($riga, 0, 2);
-            if ((strcmp($stringa['idsens'],89) == 0) || (strcmp($stringa['idsens'],90) == 0)){
-                $stringa['data'] = substr($riga,2, 10);
-                $stringa['valore'] = substr($riga, 12,2);
+        error_reporting(0);
+        $file_name = "http://martiamattino.altervista.org/rilevazioni.txt";
+        if(!file_exists($file_name)) {
+            die("File not found");
+        } else {
+            $file = fopen($file_name, "r");   // Also function executions errors are handle somehow
+            while (!feof($file)) {
+                $riga = fgets($file);
+                $stringa['idsens'] = substr($riga, 0, 2);
+                if ((strcmp($stringa['idsens'], 89) == 0) || (strcmp($stringa['idsens'], 90) == 0)) {
+                    $stringa['data'] = substr($riga, 2, 10);
+                    $stringa['valore'] = substr($riga, 12, 2);
+                } elseif ((strcmp($stringa['idsens'], 91) == 0) || (strcmp($stringa['idsens'], 92) == 0)) {
+                    $stringa['valore'] = substr($riga, 2, 2);
+                    $stringa['data'] = substr($riga, 4, 10);
+                }
+                $stringa['messaggio'] = substr($riga, 14, 20);
+                $this->amministratore_model->salva_rilevazioni($stringa);
             }
-            elseif ((strcmp($stringa['idsens'],91) == 0) || (strcmp($stringa['idsens'],92) == 0)){
-                $stringa['valore'] = substr($riga, 2,2);
-                $stringa['data'] = substr($riga,4, 10);
-            }
-            $stringa['messaggio'] = substr($riga,14, 20);
-            $this->amministratore_model->salva_rilevazioni($stringa);
         }
         $this->index();
     }

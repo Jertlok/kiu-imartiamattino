@@ -6,7 +6,7 @@
  * Time: 00:40
  */
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+
 ?>
 
 <div class="main">

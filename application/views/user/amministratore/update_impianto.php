@@ -5,7 +5,7 @@
  * Date: 21/01/2018
  * Time: 22:22
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+
 ?>
 
 <div class="main">

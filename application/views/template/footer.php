@@ -9,7 +9,8 @@
 
 <footer>
     <div class="container-fluid">
-        <p class="copyright">&copy; <?php echo date('Y')?> I MARTIA MATTINO. Built with love using CodeIgniter and Klorofil.</p>
+        <p class="copyright">&copy; <?php echo date('Y') ?> I MARTIA MATTINO. Built with love using CodeIgniter and
+            Klorofil.</p>
     </div>
 </footer>
 </html>

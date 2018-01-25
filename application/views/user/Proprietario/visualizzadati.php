@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+
 
 if((count($labels) > 0) and (count($series) > 0)) {
     $valuesOk = true;

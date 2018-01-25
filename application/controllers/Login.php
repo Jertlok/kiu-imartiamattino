@@ -36,7 +36,7 @@ class Login extends CI_Controller {
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
 
-        if($this->form_validation->run() === FALSE) {
+        if($this->form_validation->run() === false) {
             $this->load->view('/login/login');
         }
 
@@ -79,7 +79,7 @@ class Login extends CI_Controller {
      * Function that unsets the user session resulting in user logout
      */
     public function logout() {
-        if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == TRUE) {
+        if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
             // unset each session key
             foreach($_SESSION as $key => $value)
                 unset($_SESSION[$key]);

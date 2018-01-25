@@ -6,7 +6,7 @@
  * Time: 11:45
  */
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+
 
 /* Sidebar for AmministratoreImpianti */
 ?>

@@ -44,7 +44,7 @@ class Amministratore_model extends CI_Model {
         // transaction complete
         $this->db->trans_complete();
 
-        if ($this->db->trans_status() === FALSE)
+        if ($this->db->trans_status() === false)
         {
             echo 'error!';
         }

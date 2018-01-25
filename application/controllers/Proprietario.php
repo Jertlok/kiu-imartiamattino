@@ -43,7 +43,7 @@ class Proprietario extends CI_Controller
     }
 
 // visualizza tutti gli impianti di un determinato proprietario
-    public function visualizza_dati_impianto($id = FALSE){
+    public function visualizza_dati_impianto($id = false){
         $this->load->view('template/header'); // navbar loading
         $this->load->view('user/Proprietario/sidebar');
 
@@ -108,7 +108,7 @@ class Proprietario extends CI_Controller
         $this->form_validation->set_rules('impianto' , 'Impianto' , 'required');
 
 
-        if($this->form_validation->run()=== FALSE){
+        if($this->form_validation->run()=== false){
             $this->nuova_terzaparte( -1);
         }
         else{
