@@ -28,7 +28,7 @@ if((count($labels) > 0) and (count($series) > 0)) {
                 <div class="form-group">
                     <label for="daterange">Range date</label>
                     <input id ="date" class = "form-control" type="text" name="daterange" placeholder="Data range" value="<?php if (isset($date_range)) echo $date_range;
-                    if(isset($initial_date)) echo $initial_date," - ",date('Y-m-d');?>" />
+                    if(isset($initial_date)) echo $initial_date,' - ',date('Y-m-d');?>" />
                 </div>
                 <div class="form-group">
                     <label for="tipo">Tipo sensore</label>

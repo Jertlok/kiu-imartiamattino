@@ -88,7 +88,7 @@ class Proprietario_model extends CI_Model {
         error_reporting(0);    // Error reporting directive is set
 
 
-        if(!$fp=fopen("terzi.txt","w")) { // value
+        if(!$fp=fopen('terzi.txt','w')) { // value
             }
            // die();
             else {
