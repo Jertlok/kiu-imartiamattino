@@ -16,8 +16,9 @@
                 <?php
                 $sensore['ID'] = 'int';
                 $sensore['Tipo'] = 'string';
-                $Sensore['Marca'] = 'string';
+                $sensore['Marca'] = 'string';
                 $id_impianto = 'int';
+
                 echo form_open('amministratore/perform_update_sensore');?>
                 <div class="form-group">
                     <label for="sensore">Tipo sensore</label>
