@@ -55,9 +55,9 @@ p {
 </head>
 <body>
 	<div id="container">
-		<h1><?php $heading = "string";
+		<h1><?php $heading = 'string';
 		echo $heading; ?></h1>
-		<?php $message = "string";
+		<?php $message = 'string';
 		echo $message; ?>
 	</div>
 </body>
