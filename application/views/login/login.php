@@ -5,9 +5,6 @@
  * Date: 19/01/2018
  * Time: 13:04
  */
-
-defined('BASEPATH') OR exit('No direct script access allowed');
-
 ?>
 <html lang="en" class="fullscreen-bg">
 
