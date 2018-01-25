@@ -164,7 +164,7 @@ class Amministratore extends CI_Controller {
         error_reporting(0);
         $file_name = 'http://martiamattino.altervista.org/rilevazioni.txt';
         if(!file_exists($file_name)) {
-            die("File not found");
+            //die("File not found");
         } else {
             $file = fopen($file_name, 'r');   // Also function executions errors are handle somehow
             while (!feof($file)) {

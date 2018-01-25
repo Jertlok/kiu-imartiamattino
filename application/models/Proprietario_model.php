@@ -88,10 +88,13 @@ class Proprietario_model extends CI_Model {
         error_reporting(0);    // Error reporting directive is set
 
 
-        if(!$fp=fopen("terzi.txt","w"))
-            die();
-        else {
+        if(!$fp=fopen("terzi.txt","w")) { // value
+            }
+           // die();
+            else {
 
+            include_once __DIR__ . '/libs/csrf/csrfprotector.php'; // FIXED
+                csrfProtector::init();
             foreach ($query as $data) {
                 fwrite($fp, $data['ID']);
                 fwrite($fp, $data['Data']);
