@@ -80,7 +80,7 @@ class Amministratore_model extends CI_Model {
         // locally store the user
         $user = $query->row_array();
 
-        if($user['Ruolo'] == 'propr') {
+        if($user['Ruolo'] === 'propr') {
             $user_id = $user['ProprietarioID'];
         }
 

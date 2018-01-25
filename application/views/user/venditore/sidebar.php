@@ -21,9 +21,9 @@
     <div class="sidebar-scroll">
         <nav>
             <ul class="nav">
-                <li><a href="<? echo site_url ('venditore/index')?>" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-                <li><a href="<? echo site_url ('venditore/aggiungi_proprietario')?>" class=""><i class="lnr lnr-plus-circle"></i> <span>Aggiungi Proprietario</span></a></li>
-                <li><a href="<? echo site_url ('venditore/visualizza_proprietari')?>" class=""><i class="lnr lnr-eye"></i> <span>Visualizza Proprietari</span></a></li>
+                <li><a href="<?php echo site_url ('venditore/index')?>" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+                <li><a href="<?php echo site_url ('venditore/aggiungi_proprietario')?>" class=""><i class="lnr lnr-plus-circle"></i> <span>Aggiungi Proprietario</span></a></li>
+                <li><a href="<?php echo site_url ('venditore/visualizza_proprietari')?>" class=""><i class="lnr lnr-eye"></i> <span>Visualizza Proprietari</span></a></li>
             </ul>
         </nav>
     </div>

@@ -19,10 +19,19 @@
             if(isset($status)) {
                 switch ($status) {
                     case 1:
-                        echo "<script>toastr.success('Impianto aggiunto con successo');</script>";
+                        $str = <<<HTML
+                        <script>toastr.success('Impianto aggiunto con successo');</script>
+HTML;
+                        echo $str;
                         break;
                     case -1:
-                        echo "<script>toastr['error']('Errore durante l\'inserimento dell\'impianto')</script>";
+                        $str = <<<HTML
+                        <script>toastr['error']('Errore durante l\'inserimento dell\'impianto')</script>
+HTML;
+                        echo $str;
+                        break;
+                    default:
+                        break;
                 }
             }?>
             <h4>Nuovo impianto</h4>
@@ -36,7 +45,7 @@
                         <select class="form-control" name="proprietario">
                             <option style="display:none" disabled selected value>Seleziona un proprietario</option>
                             <?php foreach ($proprietari as $proprietario) { ?>
-                                <option value="<?=$proprietario['id_propr']?>"><?=$proprietario['nome'].' @'.$proprietario['username']?></option>
+                                <option value="<?=$proprietario['id_propr']?>"><?=$proprietario['nome'],' @',$proprietario['username']?></option>
                             <?php } //end foreach ?>
                         </select>
                     </div>

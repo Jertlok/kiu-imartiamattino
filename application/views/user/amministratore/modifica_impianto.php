@@ -19,10 +19,19 @@
             if(isset($status)) {
                 switch ($status) {
                     case 1:
-                        echo "<script>toastr.success('Impianto modificato con successo');</script>";
+                        $str = <<<HTML
+                        <script>toastr.success('Impianto modificato con successo');</script>
+HTML;
+                        echo $str;
                         break;
                     case -1:
-                        echo "<script>toastr['error']('Errore durante l\'aggiornmaneot dell\'impianto')</script>";
+                        $str = <<<HTML
+                        <script>toastr['error']('Errore durante l\'aggiornmaneot dell\'impianto')</script>
+HTML;
+                        echo $str;
+                        break;
+                    default:
+                        break;
                 }
             }?>
 

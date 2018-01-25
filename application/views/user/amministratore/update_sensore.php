@@ -13,14 +13,19 @@
     <!-- MAIN CONTENT -->
     <div class="main-content">
         <div class="container-fluid">
-                <?php echo form_open('amministratore/perform_update_sensore');?>
+                <?php
+                $sensore['ID'] = "int";
+                $sensore['Tipo'] = "string";
+                $Sensore['Marca'] = "string";
+                $id_impianto = "int";
+                echo form_open('amministratore/perform_update_sensore');?>
                 <div class="form-group">
                     <label for="sensore">Tipo sensore</label>
                     <select class="form-control" name="Tipo">
-                        <option <?php if(strcmp($sensore['Tipo'], 'Temperatura') == 0) echo 'selected';?>>Temperatura</option>
-                        <option <?php if(strcmp($sensore['Tipo'], 'Pressione') == 0) echo 'selected';?>>Pressione</option>
-                        <option <?php if(strcmp($sensore['Tipo'], 'pH') == 0) echo 'selected';?>>pH</option>
-                        <option <?php if(strcmp($sensore['Tipo'], 'Umidità') == 0) echo 'selected';?>>Umidità</option>
+                        <option <?php if(strcmp($sensore['Tipo'], "Temperatura") === 0) echo 'selected';?>>Temperatura</option>
+                        <option <?php if(strcmp($sensore['Tipo'], "Pressione") === 0) echo 'selected';?>>Pressione</option>
+                        <option <?php if(strcmp($sensore['Tipo'], "pH") === 0) echo 'selected';?>>pH</option>
+                        <option <?php if(strcmp($sensore['Tipo'], "Umidità") === 0) echo 'selected';?>>Umidità</option>
                     </select>
                 </div>
                 <div class="form-group">

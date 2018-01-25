@@ -68,6 +68,8 @@ class Login_model extends CI_Model
                     'role' => 'propr'
                 );
                 break;
+            default:
+                break;
         }
 
         return $data;

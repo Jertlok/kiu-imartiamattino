@@ -32,6 +32,8 @@ class Main extends CI_Controller {
                     case 'propr':
                         redirect('proprietario');
                         break;
+                    default:
+                        break;
                 }
             }
         }

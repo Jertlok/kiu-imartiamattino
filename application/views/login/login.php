@@ -37,8 +37,11 @@
 <body>
 <!-- WRAPPER -->
 <?php
-    if(isset($status) && $status == -1) {
-        echo "<script>toastr.error('Username o password errati, riprova.');</script>";
+    if(isset($status) && $status === -1) {
+        $str = <<<HTML
+        <script>toastr.error('Username o password errati, riprova.');</script>
+HTML;
+        echo $str;
     }
 ?>
 

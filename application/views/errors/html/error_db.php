@@ -55,8 +55,10 @@ p {
 </head>
 <body>
 	<div id="container">
-		<h1><?php echo $heading; ?></h1>
-		<?php echo $message; ?>
+		<h1><?php $heading = "string";
+		echo $heading; ?></h1>
+		<?php $message = "string";
+		echo $message; ?>
 	</div>
 </body>
 </html>

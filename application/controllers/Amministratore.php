@@ -90,7 +90,7 @@ class Amministratore extends CI_Controller {
             $this->form_validation->set_rules('sensore[sens'.$i.'][tipo_sensore]', 'Tipo sensore', 'required');
             $this->form_validation->set_rules('sensore[sens'.$i.'][marca_sensore]', 'Marca sensore', 'required');
         }
-        if ($this->form_validation->run() == false) {
+        if ($this->form_validation->run() === false) {
             $this->nuovo_impianto(-1);
         }
         else {
@@ -170,10 +170,11 @@ class Amministratore extends CI_Controller {
             while (!feof($file)) {
                 $riga = fgets($file);
                 $stringa['idsens'] = substr($riga, 0, 2);
-                if ((strcmp($stringa['idsens'], 89) == 0) || (strcmp($stringa['idsens'], 90) == 0)) {
+                if ((strcmp($stringa['idsens'], 89) === 0) || (strcmp($stringa['idsens'], 90) === 0)) {
                     $stringa['data'] = substr($riga, 2, 10);
                     $stringa['valore'] = substr($riga, 12, 2);
-                } elseif ((strcmp($stringa['idsens'], 91) == 0) || (strcmp($stringa['idsens'], 92) == 0)) {
+                }
+                else {
                     $stringa['valore'] = substr($riga, 2, 2);
                     $stringa['data'] = substr($riga, 4, 10);
                 }

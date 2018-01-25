@@ -16,10 +16,19 @@
             if(isset($status)) {
                 switch ($status) {
                     case 1:
-                        echo "<script>toastr.success('Impianto modificato con successo');</script>";
+                        $str = <<<HTML
+                        <script>toastr.success('Impianto modificato con successo');</script>
+HTML;
+                        echo $str;
                         break;
                     case -1:
-                        echo "<script>toastr['error']('Errore durante l\'aggiornamento dell\'impianto')</script>";
+                        $str = <<<HTML
+                        <script>toastr['error']('Errore durante l\'aggiornamento dell\'impianto')</script>
+HTML;
+                        echo $str;
+                        break;
+                    default:
+                        break;
                 }
             }?>
             <?php echo form_open('amministratore/perform_update_impianto'); ?>
@@ -82,7 +91,7 @@
                 <?php }
                 else {?>
                     <script>toastr.info("Hey, forse hai dimenticato di aggiungere qualche sensore ;)");</script>
-                <? } ?>
+                <?php } ?>
             </div>
         </div>
     </div>

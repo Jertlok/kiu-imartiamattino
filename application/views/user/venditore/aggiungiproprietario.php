@@ -7,10 +7,19 @@
             if(isset($status)) {
                 switch ($status) {
                     case 1:
-                        echo "<script>toastr.success('Proprietario aggiunto con successo');</script>";
+                        $str = <<<HTML
+                        <script>toastr.success('Proprietario aggiunto con successo');</script>
+HTML;
+                        echo $str;
                         break;
                     case -1:
-                        echo "<script>toastr['error']('Errore durante l\'aggiunta del\'proprietario')</script>";
+                        $str = <<<HTML
+                        <script>toastr['error']('Errore durante l\'aggiunta del\'proprietario')</script>
+HTML;
+                        echo $str;
+                        break;
+                    default:
+                        break;
                 }
             }?>
             <h4>Nuovo proprietario</h4>

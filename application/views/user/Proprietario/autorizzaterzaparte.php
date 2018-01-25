@@ -12,10 +12,19 @@
             if(isset($status)) {
                 switch ($status) {
                     case 1:
-                        echo "<script>toastr.success('Terza Parte aggiunta con successo');</script>";
+                        $str = <<<HTML
+                        <script>toastr.success('Terza Parte aggiunta con successo');</script>
+HTML;
+                        echo $str;
                         break;
                     case -1:
-                        echo "<script>toastr['error']('Errore durante l\'inserimento della Terza Parte')</script>";
+                        $str = <<<HTML
+                        <script>toastr['error']('Errore durante l\'inserimento della Terza Parte')</script>
+HTML;
+                        echo $str;
+                        break;
+                    default:
+                        break;
                 }
             }?>
 
