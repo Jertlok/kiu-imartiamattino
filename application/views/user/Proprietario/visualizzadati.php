@@ -34,10 +34,10 @@ if((count($labels) > 0) and (count($series) > 0)) {
                     <label for="tipo">Tipo sensore</label>
                     <select class="form-control" name="tipo">
                         <option style="display:none" disabled selected value>Seleziona un tipo di sensore</option>
-                        <option <?php if(strcmp($tipo, "Temperatura") === 0) echo 'selected';?>>Temperatura</option>
-                        <option <?php if(strcmp($tipo, "Pressione") === 0) echo 'selected';?>>Pressione</option>
-                        <option <?php if(strcmp($tipo, "pH") === 0) echo 'selected';?>>pH</option>
-                        <option <?php if(strcmp($tipo, "Umidità") === 0) echo 'selected';?>>Umidità</option>
+                        <option <?php if(strcmp($tipo, 'Temperatura') === 0) echo 'selected';?>>Temperatura</option>
+                        <option <?php if(strcmp($tipo, 'Pressione') === 0) echo 'selected';?>>Pressione</option>
+                        <option <?php if(strcmp($tipo, 'pH') === 0) echo 'selected';?>>pH</option>
+                        <option <?php if(strcmp($tipo, 'Umidità') === 0) echo 'selected';?>>Umidità</option>
                     </select>
                 </div>
                 <input type="hidden" name="id_impianto" value="<?=$id_impianto?>">
@@ -54,8 +54,8 @@ if((count($labels) > 0) and (count($series) > 0)) {
 
 
     <?php if(!isset($valuesOk)) {
-        echo '    $(function() {
-        $(\'#date\').daterangepicker(
+        echo "    $(function() {
+        $('#date').daterangepicker(
             {
                 locale: {
                     format: \'YYYY-MM-DD\'
@@ -63,8 +63,8 @@ if((count($labels) > 0) and (count($series) > 0)) {
             },
             function (start, end, label) {
 
-            }); toastr.info(\'Non sono presenti dati con i filtri inseriti.\')
-    });';} else {?>
+            }); toastr.info('Non sono presenti dati con i filtri inseriti.')
+    });";} else {?>
 
     $(function() {
         // post to controller method

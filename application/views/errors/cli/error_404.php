@@ -1,7 +1,7 @@
 <?php
 
-$heading = "string";
-$message = "string";
+$heading = 'string';
+$message = 'string';
 
 echo "\nERROR: ",
 	$heading,
