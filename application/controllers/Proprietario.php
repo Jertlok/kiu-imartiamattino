@@ -49,7 +49,7 @@ class Proprietario extends CI_Controller
 
         // normal call
         if(!$id) {
-            $daterange = explode(" - ", $this->input->post('daterange'));
+            $daterange = explode(' - ', $this->input->post('daterange'));
             $id_impianto = $this->input->post('id_impianto');
             $tipo_sensore = $this->input->post('tipo');
             $initial_date = $daterange[0];
@@ -66,13 +66,13 @@ class Proprietario extends CI_Controller
 
         else {
             $initial_date = new DateTime();
-            $initial_date->modify("-6 day");
-            $rilevazioni = $this->proprietario_model->get_rilevazioni_by_date($id, "Temperatura", $initial_date->format('Y-m-d'), date('Y-m-d'));
+            $initial_date->modify('-6 day');
+            $rilevazioni = $this->proprietario_model->get_rilevazioni_by_date($id, 'Temperatura', $initial_date->format('Y-m-d'), date('Y-m-d'));
             $data['initial_date'] = $initial_date->format('Y-m-d');
             $data['labels'] = $rilevazioni['labels'];
             $data['series'] = $rilevazioni['series'];
             $data['id_impianto'] = $id;
-            $data['tipo'] = "Temperatura";
+            $data['tipo'] = 'Temperatura';
             $this->load->view('user/Proprietario/visualizzadati', $data);
             $this->load->view('template/footer'); // footer loading
         }

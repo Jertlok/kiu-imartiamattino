@@ -62,13 +62,15 @@ class Proprietario_model extends CI_Model {
 
     public function genera_rilevazioni() {
         $date = new DateTime('2018-01-23');
-
-        for($i = 0; $i < 1000; $i++) {
+        define('N_RILEVAZIONI', 1000);
+        define('R_MIN', 10);
+        define('R_MAX', 35);
+        for($i = 0; $i < N_RILEVAZIONI; $i++) {
             if($i%20 == 0) {
                 $date->modify('+1 day');
                 $this->db->set('Data', $date->format('Y-m-d'));
             }
-            $this->db->set('Valore', rand(10, 35));
+            $this->db->set('Valore', rand(R_MIN, R_MAX));
             $this->db->set('Data', $date->format('Y-m-d'));
             $this->db->set('SensoreID', 88);
             $this->db->set('ImpiantoID', 44);
