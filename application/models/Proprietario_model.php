@@ -82,17 +82,24 @@ class Proprietario_model extends CI_Model {
         $this->db->from('Rilevazione');
         $this->db->where('ImpiantoID', '45');
         $query = $this->db->get()->result_array();
-        $fp = fopen('terzi.txt', 'w');
-        foreach ($query as $data)
-        {
-            fwrite($fp, $data['ID']);
-            fwrite($fp, $data['Data']);
-            fwrite($fp, $data['Valore']);
-            fwrite($fp, $data['Messaggio']);
-            fwrite($fp, $data['SensoreID']);
-            fwrite($fp, $data['ImpiantoID']);
+
+        error_reporting(0);    // Error reporting directive is set
+
+
+        if(!$fp=fopen("terzi.txt","w"))
+            die();
+        else {
+
+            foreach ($query as $data) {
+                fwrite($fp, $data['ID']);
+                fwrite($fp, $data['Data']);
+                fwrite($fp, $data['Valore']);
+                fwrite($fp, $data['Messaggio']);
+                fwrite($fp, $data['SensoreID']);
+                fwrite($fp, $data['ImpiantoID']);
+            }
+            fclose($fp);
         }
-        fclose($fp);
     }
 
     public function get_summary() {
