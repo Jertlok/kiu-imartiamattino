@@ -101,7 +101,7 @@ class Proprietario extends CI_Controller
         $this->load->view('template/footer'); // footer loading
     }
 
-    public function autorizzaterzaparte($status =0) {
+    public function autorizzaterzaparte() {
 
         $this->form_validation->set_rules('indirizzoIP' , 'indirizzoIP' , 'required');
         $this->form_validation->set_rules('intervalloTempo' , 'IntervalloTempo' , 'required');
