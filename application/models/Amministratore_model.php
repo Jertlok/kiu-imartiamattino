@@ -201,7 +201,7 @@ class Amministratore_model extends CI_Model {
 
     public function salva_rilevazioni($stringa){
 
-        define("IMPIANTO" , 45);
+        define('IMPIANTO' , 45);
         $this->db->set('SensoreID', $stringa['idsens']);
         $this->db->set('Data', $stringa['data']);
         $this->db->set('Valore', $stringa['valore']);

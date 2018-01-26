@@ -14,10 +14,10 @@
     <div class="main-content">
         <div class="container-fluid">
                 <?php
-                $id = $sensore['ID'] = 'int';
-                $tipo = $sensore['Tipo'] = 'string';
-                $marca = $Sensore['Marca'] = 'string';
-                $id_impianto = "int";
+                $id  = 'int';
+                $tipo  = 'string';
+                $marca  = 'string';
+                $id_impianto = 'int';
                 echo form_open('amministratore/perform_update_sensore');?>
                 <div class="form-group">
                     <label for="sensore">Tipo sensore</label>

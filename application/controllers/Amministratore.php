@@ -161,18 +161,20 @@ class Amministratore extends CI_Controller {
 
 
     public function carica_rilevazioni(){
-        define("IDSENS_START", 0);
-        define("IDSENS_LENGHT", 2);
-        define("DATA1_START", 2);
-        define("DATA1_LENGHT", 10);
-        define("VALORE1_START", 12);
-        define("VALORE1_LENGHT", 2);
-        define("DATA2_START", 4);
-        define("DATA2_LENGHT", 10);
-        define("VALORE2_START", 2);
-        define("VALORE2_LENGHT", 2);
-        define("MESSAGGIO_START", 14);
-        define("MESSAGGIO_LENGHT", 20);
+        define('IDSENS_START', 0);
+        define('IDSENS_LENGHT', 2);
+        define('DATA1_START', 2);
+        define('DATA1_LENGHT', 10);
+        define('VALORE1_START', 12);
+        define('VALORE1_LENGHT', 2);
+        define('DATA2_START', 4);
+        define('DATA2_LENGHT', 10);
+        define('VALORE2_START', 2);
+        define('VALORE2_LENGHT', 2);
+        define('MESSAGGIO_START', 14);
+        define('MESSAGGIO_LENGHT', 20);
+        define('ID_S1', 89);
+        define('ID_S2', 90);
         error_reporting(0);
         $file_name = 'http://martiamattino.altervista.org/rilevazioni.txt';
         if(file_exists($file_name)=== false) {
@@ -182,7 +184,7 @@ class Amministratore extends CI_Controller {
             while (feof($file) === false) {
                 $riga = fgets($file);
                 $stringa['idsens'] = substr($riga, IDSENS_START, IDSENS_LENGHT);
-                if ((strcmp($stringa['idsens'], 89) === 0) || (strcmp($stringa['idsens'], 90) === 0)) {
+                if ((strcmp($stringa['idsens'], ID_S1) === 0) || (strcmp($stringa['idsens'], ID_S2) === 0)) {
                     $stringa['data'] = substr($riga, DATA1_START, DATA1_LENGHT);
                     $stringa['valore'] = substr($riga, VALORE1_START, VALORE1_LENGHT);
                 }
