@@ -9,7 +9,7 @@
         <div class="container-fluid">
             <!-- notifications -->
             <?php
-            if(isset($status)) {
+            if(isset($status)=== true) {
                 switch ($status) {
                     case 1:
                         $str = <<<HTML

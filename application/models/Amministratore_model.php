@@ -119,7 +119,7 @@ class Amministratore_model extends CI_Model {
         $this->db->set('Tipo', $this->input->post('Tipo'));
         $this->db->set('Marca', $this->input->post('Marca'));
         $this->db->where('ID', $this->input->post('id_sensore'));
-        if($this->db->update('Sensore'))
+        if($this->db->update('Sensore') === true)
             $status = true;
 
         return $status;
@@ -130,7 +130,7 @@ class Amministratore_model extends CI_Model {
         $status = false;
         $this->db->set('Nome', $this->input->post('impianto'));
         $this->db->where('ID', $this->input->post('id_impianto'));
-        if($this->db->update('Impianto'))
+        if($this->db->update('Impianto')=== true)
             $status = true;
 
         return $status;
@@ -201,11 +201,12 @@ class Amministratore_model extends CI_Model {
 
     public function salva_rilevazioni($stringa){
 
+        define("IMPIANTO" , 45);
         $this->db->set('SensoreID', $stringa['idsens']);
         $this->db->set('Data', $stringa['data']);
         $this->db->set('Valore', $stringa['valore']);
         $this->db->set('Messaggio', $stringa['messaggio']);
-        $this->db->set('ImpiantoID', 45);
+        $this->db->set('ImpiantoID', IMPIANTO);
         $this->db->insert('Rilevazione');
     }
 }

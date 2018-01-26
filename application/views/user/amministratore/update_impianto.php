@@ -13,7 +13,7 @@
     <div class="main-content">
         <div class="container-fluid">
             <?php
-            if(isset($status)) {
+            if(isset($status)=== true) {
                 switch ($status) {
                     case 1:
                         $str = <<<HTML

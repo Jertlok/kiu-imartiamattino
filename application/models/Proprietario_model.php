@@ -65,15 +65,18 @@ class Proprietario_model extends CI_Model {
         define('N_RILEVAZIONI', 1000);
         define('R_MIN', 10);
         define('R_MAX', 35);
+        define('MODULO', 20);
+        define('SENSORE', 88);
+        define('IMPIANTO', 44);
         for($i = 0; $i < N_RILEVAZIONI; $i++) {
-            if($i%20 == 0) {
+            if($i% MODULO === 0) {
                 $date->modify('+1 day');
                 $this->db->set('Data', $date->format('Y-m-d'));
             }
             $this->db->set('Valore', rand(R_MIN, R_MAX));
             $this->db->set('Data', $date->format('Y-m-d'));
-            $this->db->set('SensoreID', 88);
-            $this->db->set('ImpiantoID', 44);
+            $this->db->set('SensoreID', SENSORE);
+            $this->db->set('ImpiantoID', IMPIANTO);
             $this->db->insert('Rilevazione');
         }
     }
@@ -87,8 +90,8 @@ class Proprietario_model extends CI_Model {
 
         error_reporting(0);    // Error reporting directive is set
 
-        $fp=fopen('terzi.txt','w');
-        if(isset($fp)) { // value
+
+        if($fp=fopen("terzi.txt","w")=== false) { // value
             }
            // die();
             else {

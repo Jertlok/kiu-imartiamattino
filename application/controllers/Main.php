@@ -19,9 +19,9 @@ class Main extends CI_Controller {
         /* logic for dispatching to login page or corrispective session (PHP session)
         page -> AmministratoreImpianti / Proprietario / Venditore */
 
-        if($this->session->has_userdata('logged_in')) {
+        if($this->session->has_userdata('logged_in')=== true) {
             // dispatch the user to its role
-            if(isset($this->session->role)) {
+            if(isset($this->session->role)=== true) {
                 switch ($this->session->userdata('role')) {
                     case 'amm':
                         redirect('amministratore');

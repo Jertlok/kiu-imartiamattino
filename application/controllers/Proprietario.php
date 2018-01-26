@@ -48,7 +48,7 @@ class Proprietario extends CI_Controller
         $this->load->view('user/Proprietario/sidebar');
 
         // normal call
-        if(!$id) {
+        if($id=== false) {
             $daterange = explode(' - ', $this->input->post('daterange'));
             $id_impianto = $this->input->post('id_impianto');
             $tipo_sensore = $this->input->post('tipo');

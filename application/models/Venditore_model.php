@@ -54,7 +54,7 @@ class Venditore_model extends CI_Model
         ));
         */
 
-        if ($this->db->set('Proprietario'))
+        if ($this->db->set('Proprietario')=== true )
             $status = true;
 
         return $status;

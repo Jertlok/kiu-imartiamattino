@@ -58,11 +58,11 @@ HTML;
                         <?php
 
                         echo form_open('login/signin');?>
-                            <div class="form-group <?php if(form_error('username') != null) echo 'has-error';?>">
+                            <div class="form-group <?php if(form_error('username') !== null) echo 'has-error';?>">
                                 <label for="username" class="control-label sr-only">Username</label>
                                 <input type="input" name="username" class="form-control" id="username" value="" placeholder="Username">
                             </div>
-                            <div class="form-group <?php if(form_error('password') != null) echo 'has-error';?>">
+                            <div class="form-group <?php if(form_error('password') !== null) echo 'has-error';?>">
                                 <label for="password" class="control-label sr-only">Password</label>
                                 <input type="password" name="password" class="form-control" id="password" value="" placeholder="Password">
                             </div>

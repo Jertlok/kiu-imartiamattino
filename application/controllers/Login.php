@@ -48,7 +48,7 @@ class Login extends CI_Controller {
             $username = $this->input->post('username');
             $password = $this->input->post('password');
 
-            if($this->login_model->resolve_user_login($username, $password)) { // password correctly validated
+            if($this->login_model->resolve_user_login($username, $password)=== true) { // password correctly validated
                 // get user data, basically its role and id
                 $user_data = $this->login_model->get_user_data($username);
 

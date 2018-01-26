@@ -102,7 +102,7 @@ class Amministratore extends CI_Controller {
     // --- LOGIC
 
     public function update_nome_impianto() {
-        if(!$this->amministratore_model->update_nome_impianto())
+        if($this->amministratore_model->update_nome_impianto()=== false)
             $this->modifica_impianto(-1);
         else
             $this->modifica_impianto(1);
@@ -119,7 +119,7 @@ class Amministratore extends CI_Controller {
     }
 
     public function perform_update_sensore() {
-        if(!$this->amministratore_model->update_sensore())
+        if($this->amministratore_model->update_sensore()=== false)
             $this->update_impianto($this->input->post('id_impianto'),-1);
         else
             $this->update_impianto($this->input->post('id_impianto'), 1);
@@ -127,7 +127,7 @@ class Amministratore extends CI_Controller {
 
     public function remove_impianto($id) {
 
-        if(!$this->amministratore_model->remove_impianto($id))
+        if($this->amministratore_model->remove_impianto($id)=== false)
             $this->modifica_impianto(-1);
         // redirect user to remove view
         else
@@ -138,7 +138,7 @@ class Amministratore extends CI_Controller {
 
     public function remove_sensore($id, $id_impianto) {
 
-        if(!$this->amministratore_model->remove_sensore($id))
+        if($this->amministratore_model->remove_sensore($id)=== false)
             $this->update_impianto($id_impianto, -1);
         else
             $this->update_impianto($id_impianto, 1);
@@ -161,24 +161,36 @@ class Amministratore extends CI_Controller {
 
 
     public function carica_rilevazioni(){
+        define("IDSENS_START", 0);
+        define("IDSENS_LENGHT", 2);
+        define("DATA1_START", 2);
+        define("DATA1_LENGHT", 10);
+        define("VALORE1_START", 12);
+        define("VALORE1_LENGHT", 2);
+        define("DATA2_START", 4);
+        define("DATA2_LENGHT", 10);
+        define("VALORE2_START", 2);
+        define("VALORE2_LENGHT", 2);
+        define("MESSAGGIO_START", 14);
+        define("MESSAGGIO_LENGHT", 20);
         error_reporting(0);
         $file_name = 'http://martiamattino.altervista.org/rilevazioni.txt';
-        if(!file_exists($file_name)) {
+        if(file_exists($file_name)=== false) {
             //die("File not found");
         } else {
             $file = fopen($file_name, 'r');   // Also function executions errors are handle somehow
-            while (!feof($file)) {
+            while (feof($file) === false) {
                 $riga = fgets($file);
-                $stringa['idsens'] = substr($riga, 0, 2);
+                $stringa['idsens'] = substr($riga, IDSENS_START, IDSENS_LENGHT);
                 if ((strcmp($stringa['idsens'], 89) === 0) || (strcmp($stringa['idsens'], 90) === 0)) {
-                    $stringa['data'] = substr($riga, 2, 10);
-                    $stringa['valore'] = substr($riga, 12, 2);
+                    $stringa['data'] = substr($riga, DATA1_START, DATA1_LENGHT);
+                    $stringa['valore'] = substr($riga, VALORE1_START, VALORE1_LENGHT);
                 }
                 else {
-                    $stringa['valore'] = substr($riga, 2, 2);
-                    $stringa['data'] = substr($riga, 4, 10);
+                    $stringa['valore'] = substr($riga, VALORE2_START, VALORE2_LENGHT);
+                    $stringa['data'] = substr($riga, DATA2_START, DATA2_LENGHT);
                 }
-                $stringa['messaggio'] = substr($riga, 14, 20);
+                $stringa['messaggio'] = substr($riga, MESSAGGIO_START, MESSAGGIO_LENGHT);
                 $this->amministratore_model->salva_rilevazioni($stringa);
             }
         }
